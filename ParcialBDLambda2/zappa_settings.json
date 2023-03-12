@@ -1,0 +1,24 @@
+{
+    "dev": {
+        "app_function": "lambdaDatosProc.lambdaProc",
+        "keep_warm": false,
+        "role_name": "LabRole",
+        "manage_roles": false,
+        "apigateway_enabled": false,
+        "aws_region": "us-east-1",
+        "profile_name": "default",
+        "project_name": "parcialbdlambda",
+        "runtime": "python3.9",
+        "s3_bucket": "zappa-49q17whb6",
+        "events": [{
+            "function": "lambdaDatosProc.lambdaProc",
+            "event_source": {
+                  "arn":  "arn:aws:s3:::landing-casas-3003",
+                  "events": [
+                    "s3:ObjectCreated:*"
+                  ],
+                 
+               }
+            }]
+    }
+}
