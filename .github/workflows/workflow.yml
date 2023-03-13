@@ -53,6 +53,7 @@ jobs:
       - name: DespliegueLambda2
         run: |
           cd ParcialBDLambda2/
+          virtualenv env
           source env/bin/activate
           pip install -r requierements.txt
           pip install zappa
@@ -61,6 +62,7 @@ jobs:
       - name: DespliegueLambda1
         run: |
           cd ParcialBD/
+          virtualenv env
           source env/bin/activate
           pip install -r requierements.txt 
           zappa update dev
@@ -68,6 +70,7 @@ jobs:
       - name: UnitTest
         run: |
           cd test/
+          virtualenv env
           source env/bin/activate
           pip install -r requierements.txt
           pytest
