@@ -35,7 +35,65 @@ Este proyecto tiene como objetivo hacer web scraping a la pagina web: https://ca
 
 [![Pytest License](https://img.shields.io/badge/License-Pytest-red)](https://docs.pytest.org/en/7.1.x/license.html)
 
+## Requerimientos
+#### Cuenta AWS CLI
+| Buckets S3 |  
+| :-------- | 
+|  S3 -> bucket: "casas-final-3003"|
+|  S3 -> bucket: "landing-casas-3003"|
 
+* Python 3.9
+* Zappa
+* Boto3
+* BeautifulSoup
+* Pytest
+* Y demás se encuentran en los diferentes archivos requirements.txt
+
+
+## Instalación
+
+Clonación del repositorio, e ingrese a la carpeta creada
+
+bash
+  git clone git@github.com:JohanPolar/PARCIAL-BD.git
+  cd PARCIAL-BD/
+
+    
+Como se tienen 3 environments se debe
+ingresar a cada carpeta y crear su ambiente definido 
+bash
+    virtualenv -p python3.9 env
+
+Activar el environment creado 
+bash
+    source env/bin/activate
+
+Instalación de requirements 
+bash
+    pip install -r requierements.txt
+
+
+Configuración de sus credenciales dentro de un archivo en una carpeta .aws situada en la raiz llamado credentials. 
+
+# Desarrollo
+Tener en cuenta, que dentro de los lambda creados ya esta definido que el lambda para capturar los datos se ejecute cada Lunes a las 9 am Hora colombiana
+Si se quiere hacer uso de las demás funciones como: 
+
+    - Revisión de código limpio con flake8
+    - Ejecución de pruebas unitarias
+    - Despliegue automático en AWS
+    
+Se ejecutan de manera automática por medio de un pipeline de despliegue continuo, donde al hacer cambios en alguno de los labda y hacer el zappa update dev se ejecutan en actions, para determinar que el código escrito tenga una sintaxis buena y entendible, siguiendo los parámetros de flake8. 
+Se ejecutan pruebas unitarias determinando que cada uno de las funciones: 
+
+    - Descargar html
+    - Verificar que no se encuentre vació el html
+    - Verificar que no se encuentre vació el csv generado
+
+Se cumplan de manera afectiva. Para por ultimo realizar el cambio directamente en el lambda de aws
+
+#### TENER EN CUENTA:
+Se debe cambiar las variables privadas de GitHubActions, para que tenga el acceso a su cuenta de AWS y pueda realizar todas las acciones respectivas
 
 
 
