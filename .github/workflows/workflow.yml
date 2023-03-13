@@ -42,6 +42,7 @@ jobs:
           cd ..
           cd ParcialBDLambda2
           flake8 lambdaDatosProc.py
+          deactivate
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -51,25 +52,23 @@ jobs:
           aws-region: us-east-1
       - name: DespliegueLambda2
         run: |
-          pip install virtualenv
-          virtualenv env
+          cd ParcialBDLambda2/
           source env/bin/activate
           pip install -r requierements.txt
           pip install zappa
           zappa update dev
+          deactivate
       - name: DespliegueLambda1
         run: |
           cd ParcialBD/
-          pip install virtualenv
-          virtualenv env
           source env/bin/activate
           pip install -r requierements.txt 
           zappa update dev
+          deactivate
       - name: UnitTest
         run: |
           cd test/
-          pip install virtualenv
-          virtualenv env
           source env/bin/activate
           pip install -r requierements.txt
           pytest
+          deactivate
