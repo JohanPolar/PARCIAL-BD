@@ -29,6 +29,7 @@ jobs:
           python-version: 'pypy3.9'
       - name: Clean Code 
         run: |
+          cd test/
           pip install virtualenv
           virtualenv env
           source env/bin/activate
