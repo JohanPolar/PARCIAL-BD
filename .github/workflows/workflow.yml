@@ -36,5 +36,9 @@ jobs:
           pip install -r requierements.txt
           flake8 funtions.py
           flake8 test_functions.py
-      - name: UnitTest
-        run: ls
+          cd ..
+          cd ParcialBD/
+          flake8 lambdaDatosIn.py
+          cd ..
+          cd ParcialBDLambda2
+          flake8 lambdaDatosProc.py
