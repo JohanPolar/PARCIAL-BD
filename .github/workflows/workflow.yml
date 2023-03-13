@@ -55,6 +55,7 @@ jobs:
           pip install virtualenv
           virtualenv env
           source env/bin/activate
+          pip install -r requierements.txt
           pip install zappa
           zappa update dev
       - name: DespliegueLambda1
@@ -63,6 +64,7 @@ jobs:
           pip install virtualenv
           virtualenv env
           source env/bin/activate
+          pip install -r requierements.txt
           zappa update dev
       - name: UnitTest
         run: |
