@@ -1,3 +1,6 @@
 /env
 *.pyc
 *pychache*
+[flake8]
+exclude = .git,_pycache_,env,pytest_cache
+ignore = E501
