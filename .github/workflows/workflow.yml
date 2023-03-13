@@ -27,6 +27,13 @@ jobs:
       - uses: actions/setup-python@v4 
         with:
           python-version: 'pypy3.9'
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+          aws-session-token: ${{secrets.AWS_SESSION_TOKEN}}
+          aws-region: us-east-1
       - name: Clean Code 
         run: |
           cd test/
@@ -43,13 +50,14 @@ jobs:
           cd ParcialBDLambda2
           flake8 lambdaDatosProc.py
           deactivate
-      - name: Configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
-          aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-          aws-session-token: ${{secrets.AWS_SESSION_TOKEN}}
-          aws-region: us-east-1
+      - name: DespliegueLambda1
+        run: |
+          cd ParcialBD/
+          virtualenv env
+          source env/bin/activate
+          pip install -r requierements.txt 
+          zappa update dev
+          deactivate
       - name: DespliegueLambda2
         run: |
           cd ParcialBDLambda2/
@@ -57,14 +65,6 @@ jobs:
           source env/bin/activate
           pip install -r requierements.txt
           pip install zappa
-          zappa update dev
-          deactivate
-      - name: DespliegueLambda1
-        run: |
-          cd ParcialBD/
-          virtualenv env
-          source env/bin/activate
-          pip install -r requierements.txt 
           zappa update dev
           deactivate
       - name: UnitTest
