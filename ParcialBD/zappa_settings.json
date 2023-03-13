@@ -6,13 +6,12 @@
         "manage_roles": false,
         "apigateway_enabled": false,
         "aws_region": "us-east-1",
-        "profile_name": "default",
         "project_name": "parcialbd",
         "runtime": "python3.9",
         "s3_bucket": "zappa-ltlst6tll",
         "events": [{
            "function": "lambdaDatosIn.lambdaDatos", // The function to execute
-           "expressions": ["cron(0 9 ? * MON *)"] // When to execute it (in cron or rate format)
+           "expressions": ["cron(0 14 ? * MON *)"] // When to execute it (in cron or rate format)
        }],
     }
 }

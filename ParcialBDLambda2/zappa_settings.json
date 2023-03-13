@@ -6,7 +6,6 @@
         "manage_roles": false,
         "apigateway_enabled": false,
         "aws_region": "us-east-1",
-        "profile_name": "default",
         "project_name": "parcialbdlambda",
         "runtime": "python3.9",
         "s3_bucket": "zappa-49q17whb6",
