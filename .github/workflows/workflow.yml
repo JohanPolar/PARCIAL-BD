@@ -50,6 +50,14 @@ jobs:
           cd ParcialBDLambda2
           flake8 lambdaDatosProc.py
           deactivate
+      - name: UnitTest
+        run: |
+          cd test/
+          virtualenv env
+          source env/bin/activate
+          pip install -r requierements.txt
+          pytest
+          deactivate
       - name: DespliegueLambda1
         run: |
           cd ParcialBD/
@@ -66,12 +74,4 @@ jobs:
           pip install -r requirements.txt
           pip install zappa
           zappa update dev
-          deactivate
-      - name: UnitTest
-        run: |
-          cd test/
-          virtualenv env
-          source env/bin/activate
-          pip install -r requierements.txt
-          pytest
           deactivate
