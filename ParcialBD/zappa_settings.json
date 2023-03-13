@@ -11,7 +11,7 @@
         "s3_bucket": "zappa-ltlst6tll",
         "events": [{
            "function": "lambdaDatosIn.lambdaDatos", // The function to execute
-           "expression": ["cron(0 14 ? * MON *)"] // When to execute it (in cron or rate format)
+           "expression": "cron(0 14 ? * MON *)" // When to execute it (in cron or rate format)
        }],
     }
 }
