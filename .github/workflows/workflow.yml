@@ -51,7 +51,7 @@ jobs:
           aws-region: us-east-1
       - name: DespliegueLambda2
         run: |
-          cd ParcialBD/ 
+          cd ParcialBDLambda2/ 
           pip install virtualenv
           virtualenv env
           source env/bin/activate
@@ -59,7 +59,7 @@ jobs:
           zappa update dev
       - name: DespliegueLambda1
         run: |
-          cd ParcialBDLambda2/
+          cd ParcialBD/
           pip install virtualenv
           virtualenv env
           source env/bin/activate
