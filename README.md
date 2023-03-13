@@ -19,21 +19,7 @@ Erika Romero
 <br>
 
 # Parcial 1 
-Este proyecto tiene como objetivo hacer web scraping a la pagina web: https://casas.mitula.com.co/searchRE/nivel1-Cundinamarca/nivel2-Bogot%C3%A1/nivel3-Chapinero/orden-0/q-bogota?req_sgmt=REVTS1RPUDtVU0VSX1NFQVJDSDtTRVJQOw== mediante las funciones de lambda de aws,  con el fin de extraer la informacion de las viviendas y guardarla en un archivo csv, desarrollando un pipeline de despliegue continuo con GitHubActions realizando: 
-
-- Revisión de código limpio con flake8
-- Ejecución de pruebas unitarias
-- Despliegue automático en AWS
-
-
-
-## Insignias
-
-[![Zappa License](https://img.shields.io/badge/License-Zappa-green)](https://github.com/zappa/Zappa/blob/master/LICENSE)
-
-[![Flake8 License](https://img.shields.io/badge/License-Flake8-orange)](https://github.com/PyCQA/flake8/blob/main/LICENSE)
-
-[![Pytest License](https://img.shields.io/badge/License-Pytest-red)](https://docs.pytest.org/en/7.1.x/license.html)
+Este proyecto tiene como objetivo hacer web scraping a la pagina web: https://casas.mitula.com.co/searchRE/nivel1-Cundinamarca/nivel2-Bogot%C3%A1/nivel3-Chapinero/orden-0/q-bogota?req_sgmt=REVTS1RPUDtVU0VSX1NFQVJDSDtTRVJQOw== mediante las funciones de lambda de aws,  con el fin de extraer la informacion de las viviendas y guardarla en un archivo csv, desarrollando un pipeline de despliegue continuo con GitHubActions.
 
 ## Requerimientos
 #### Cuenta AWS CLI
@@ -54,28 +40,30 @@ Este proyecto tiene como objetivo hacer web scraping a la pagina web: https://ca
 
 Clonación del repositorio, e ingrese a la carpeta creada
 
-bash
+```bash
   git clone git@github.com:JohanPolar/PARCIAL-BD.git
   cd PARCIAL-BD/
-
+```
     
 Como se tienen 3 environments se debe
 ingresar a cada carpeta y crear su ambiente definido 
-bash
+
+```bash
     virtualenv -p python3.9 env
-
+```
 Activar el environment creado 
-bash
+```bash
     source env/bin/activate
-
+```
 Instalación de requirements 
-bash
+```bash
     pip install -r requierements.txt
-
+```
 
 Configuración de sus credenciales dentro de un archivo en una carpeta .aws situada en la raiz llamado credentials. 
-
+  
 # Desarrollo
+  
 Tener en cuenta, que dentro de los lambda creados ya esta definido que el lambda para capturar los datos se ejecute cada Lunes a las 9 am Hora colombiana
 Si se quiere hacer uso de las demás funciones como: 
 
@@ -95,7 +83,13 @@ Se cumplan de manera afectiva. Para por ultimo realizar el cambio directamente e
 #### TENER EN CUENTA:
 Se debe cambiar las variables privadas de GitHubActions, para que tenga el acceso a su cuenta de AWS y pueda realizar todas las acciones respectivas
 
+## Insignias
 
+[![Zappa License](https://img.shields.io/badge/License-Zappa-green)](https://github.com/zappa/Zappa/blob/master/LICENSE)
+
+[![Flake8 License](https://img.shields.io/badge/License-Flake8-orange)](https://github.com/PyCQA/flake8/blob/main/LICENSE)
+
+[![Pytest License](https://img.shields.io/badge/License-Pytest-red)](https://docs.pytest.org/en/7.1.x/license.html)
 
 ## Autores
 
