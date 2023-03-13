@@ -1,4 +1,5 @@
 from funtions import downloadHTML, isntnullHTML, rqt_Mitula
+from pytest_mock import mocker
 
 
 def test_downloadHTML():

@@ -23,9 +23,9 @@ def isntnullHTML():
         obj = bucket.Object('' + str(now.year) + '-' + str(now.month) + '-' + str(now.day) + '.html')
         body = obj.get()['Body'].read()
         if body is None:
-            return True
-        else:
             return False
+        else:
+            return True
     except ValueError:
         return False
 
